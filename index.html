@@ -40,15 +40,70 @@
             right: 0;
             background: linear-gradient(135deg, var(--accent) 0%, #d94d1f 100%);
             color: var(--white);
-            padding: 12px 20px;
+            padding: 16px 20px;
             z-index: 9999;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-            transform: translateY(-100%);
-            transition: transform 0.3s ease;
+            transition: all 0.3s ease;
         }
         
         .countdown-sticky.visible {
             transform: translateY(0);
+        }
+        
+        /* Offer Ended Sticky Bar */
+        .offer-ended-sticky {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: var(--primary-yellow);
+            color: var(--dark);
+            padding: 18px 20px;
+            z-index: 9999;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            border-bottom: 3px solid var(--dark);
+        }
+        
+        .offer-ended-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            text-align: center;
+        }
+        
+        .offer-ended-text {
+            font-weight: 700;
+            font-size: 15px;
+            letter-spacing: 0.5px;
+            color: var(--dark);
+        }
+        
+        .offer-ended-text strong {
+            color: var(--dark);
+            font-size: 16px;
+        }
+        
+        .offer-ended-email {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 700;
+            padding: 10px 24px;
+            background: rgba(0, 0, 0, 0.1);
+            border: 2px solid var(--dark);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            font-size: 15px;
+        }
+        
+        .offer-ended-email:hover {
+            background: var(--dark);
+            color: var(--primary-yellow);
+            transform: translateY(-2px);
         }
         
         .countdown-sticky-content {
@@ -87,7 +142,7 @@
             position: relative;
             background: linear-gradient(135deg, var(--dark) 0%, var(--grey) 100%);
             color: var(--white);
-            padding: 120px 20px 100px;
+            padding: 100px 20px 100px;
             overflow: hidden;
         }
         
@@ -859,7 +914,7 @@
         /* Responsive */
         @media (max-width: 768px) {
             .hero {
-                padding: 100px 20px 80px;
+                padding: 80px 20px 80px;
             }
             
             .hero.with-sticky {
@@ -900,6 +955,20 @@
             .countdown-sticky-timer .timer-segment {
                 padding: 3px 6px;
                 font-size: 14px;
+            }
+            
+            .offer-ended-content {
+                flex-direction: column;
+                gap: 12px;
+            }
+            
+            .offer-ended-text {
+                font-size: 13px;
+            }
+            
+            .offer-ended-email {
+                font-size: 14px;
+                padding: 8px 20px;
             }
             
             .price-container {
@@ -943,11 +1012,21 @@
     </style>
 </head>
 <body>
-    <!-- Countdown Sticky Bar -->
+    <!-- Countdown Sticky Bar (Active) -->
     <div class="countdown-sticky" id="stickyCountdown">
         <div class="countdown-sticky-content">
             <span class="countdown-sticky-text">🔥 Special Offer Ends In:</span>
             <div class="countdown-sticky-timer" id="stickyTimer"></div>
+        </div>
+    </div>
+
+    <!-- Offer Ended Sticky Bar (Shows when expired) -->
+    <div class="offer-ended-sticky hidden" id="offerEndedSticky">
+        <div class="offer-ended-content">
+            <span class="offer-ended-text"><strong>⚠️ Special Offer Has Ended</strong> • Contact us to learn about current offers:</span>
+            <a href="mailto:learn@continuousimprovement.education" class="offer-ended-email">
+                📧 learn@continuousimprovement.education
+            </a>
         </div>
     </div>
 
@@ -1000,6 +1079,10 @@
                     <div class="price-container" style="margin-top: 20px;">
                         <span class="current-price" style="font-size: 48px;">$995</span>
                     </div>
+                    <p style="margin-top: 24px; font-size: 16px;">Contact us to learn about current offers:</p>
+                    <a href="mailto:learn@continuousimprovement.education" style="color: var(--primary-yellow); text-decoration: none; font-weight: 700; font-size: 16px; display: inline-block; margin-top: 8px;">
+                        📧 learn@continuousimprovement.education
+                    </a>
                 </div>
                 
                 <div class="cta-container">
@@ -1274,10 +1357,14 @@
             <!-- Final CTA Expired Banner -->
             <div class="expired-banner hidden" id="finalExpiredBanner">
                 <h3>Special Offer Has Ended</h3>
-                <p>Standard pricing is now in effect.</p>
+                <p>The limited-time discount has expired, but you can still enroll at our standard price.</p>
                 <div class="price-container" style="margin-top: 20px;">
                     <span class="current-price" style="font-size: 48px;">$995</span>
                 </div>
+                <p style="margin-top: 24px; font-size: 16px;">Contact us to learn about current offers:</p>
+                <a href="mailto:learn@continuousimprovement.education" style="color: var(--primary-yellow); text-decoration: none; font-weight: 700; font-size: 16px; display: inline-block; margin-top: 8px;">
+                    📧 learn@continuousimprovement.education
+                </a>
             </div>
             
             <a href="https://buy.stripe.com/5kQ9AT6Jn5jc1s4guh38409?prefilled_promo_code=special-demo" class="cta-button" id="finalCtaButton">Start Your Journey Now</a>
@@ -1407,8 +1494,12 @@
             document.getElementById('urgencyText').textContent = '✓ Enroll at Standard Price';
             document.getElementById('finalUrgencyText').textContent = '✓ Enroll at Standard Price';
             
-            // Hide sticky countdown
-            document.getElementById('stickyCountdown').classList.remove('visible');
+            // Hide countdown sticky and show offer ended sticky
+            document.getElementById('stickyCountdown').classList.add('hidden');
+            document.getElementById('offerEndedSticky').classList.remove('hidden');
+            
+            // Adjust hero padding for the offer ended sticky bar
+            document.getElementById('heroSection').classList.add('with-sticky');
         }
 
         // Update all timers
@@ -1438,8 +1529,11 @@
             }
         }
 
-        // Show sticky countdown on scroll
+        // Show sticky countdown on scroll (only if not expired)
         function handleScroll() {
+            const time = getRemainingTime(initCountdown());
+            if (!time) return; // Don't handle scroll if expired
+            
             const sticky = document.getElementById('stickyCountdown');
             const hero = document.getElementById('heroSection');
             const heroBottom = hero.offsetTop + hero.offsetHeight;
@@ -1459,16 +1553,22 @@
         // Initial update
         updateAllTimers(startTime);
         
+        // Check if already expired on load
+        if (!getRemainingTime(startTime)) {
+            showExpiredState();
+        }
+        
         // Update every second
         setInterval(() => {
             updateAllTimers(startTime);
         }, 1000);
         
-        // Handle scroll for sticky countdown
-        window.addEventListener('scroll', handleScroll);
-        
-        // Initial scroll check
-        handleScroll();
+        // Handle scroll for sticky countdown (only if not expired)
+        if (getRemainingTime(startTime)) {
+            window.addEventListener('scroll', handleScroll);
+            // Initial scroll check
+            handleScroll();
+        }
     </script>
 </body>
 </html>
