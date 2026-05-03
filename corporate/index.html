@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -14,718 +13,714 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-```
-:root {
-  --yellow: #ffd559;
-  --yellow-dark: #e6be3e;
-  --black: #0d0d0d;
-  --dark: #1a1a1a;
-  --mid: #2e2e2e;
-  --grey: #8a8a8a;
-  --light: #f5f5f0;
-  --white: #ffffff;
-  --font-display: 'Syne', sans-serif;
-  --font-body: 'DM Sans', sans-serif;
-  --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-}
+    :root {
+      --yellow: #ffd559;
+      --yellow-dark: #e6be3e;
+      --black: #0d0d0d;
+      --dark: #1a1a1a;
+      --mid: #2e2e2e;
+      --grey: #8a8a8a;
+      --light: #f5f5f0;
+      --white: #ffffff;
+      --font-display: 'Syne', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
+      --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
 
-body {
-  font-family: var(--font-body);
-  background: var(--white);
-  color: var(--black);
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
+    body {
+      font-family: var(--font-body);
+      background: var(--white);
+      color: var(--black);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
 
-/* ─── HEADER ─────────────────────────────────────── */
-.ka-header {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: var(--black);
-  border-bottom: 2px solid var(--yellow);
-}
-.ka-header__bar {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
-  height: 70px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 2rem;
-}
-.ka-logo {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  text-decoration: none;
-  flex-shrink: 0;
-}
-.ka-logo img {
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  border: 2px solid var(--yellow);
-  object-fit: cover;
-}
-.ka-logo__text { display: flex; flex-direction: column; line-height: 1; }
-.ka-logo__name {
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-size: 1.05rem;
-  color: var(--white);
-  letter-spacing: -0.02em;
-}
-.ka-logo__name span { color: var(--yellow); }
-.ka-logo__tagline {
-  font-size: 0.62rem;
-  font-weight: 300;
-  color: var(--grey);
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  margin-top: 2px;
-}
-.ka-nav { display: flex; align-items: center; gap: 0.25rem; }
-.ka-nav a {
-  font-family: var(--font-body);
-  font-size: 0.85rem;
-  font-weight: 500;
-  color: #ccc;
-  text-decoration: none;
-  padding: 0.45rem 0.85rem;
-  border-radius: 6px;
-  transition: color var(--transition), background var(--transition);
-  white-space: nowrap;
-}
-.ka-nav a:hover { color: var(--yellow); background: rgba(255,213,89,0.08); }
-.ka-header__cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  background: var(--yellow);
-  color: var(--black);
-  font-family: var(--font-display);
-  font-size: 0.82rem;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  text-decoration: none;
-  padding: 0.55rem 1.2rem;
-  border-radius: 6px;
-  border: 2px solid var(--yellow);
-  transition: background var(--transition), color var(--transition);
-  flex-shrink: 0;
-  white-space: nowrap;
-}
-.ka-header__cta:hover { background: transparent; color: var(--yellow); }
-.ka-hamburger {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  cursor: pointer;
-  padding: 0.4rem;
-  background: none;
-  border: none;
-}
-.ka-hamburger span {
-  display: block;
-  width: 24px;
-  height: 2px;
-  background: var(--white);
-  border-radius: 2px;
-}
-.ka-mobile-nav {
-  display: none;
-  flex-direction: column;
-  background: var(--dark);
-  border-top: 1px solid #2e2e2e;
-  padding: 1rem 2rem 1.5rem;
-  gap: 0.25rem;
-}
-.ka-mobile-nav a {
-  font-size: 0.9rem;
-  font-weight: 500;
-  color: #ccc;
-  text-decoration: none;
-  padding: 0.65rem 0;
-  border-bottom: 1px solid #2e2e2e;
-}
-.ka-mobile-nav a:last-child { border-bottom: none; }
-.ka-mobile-nav.open { display: flex; }
+    /* ─── HEADER ─────────────────────────────────────── */
+    .ka-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--black);
+      border-bottom: 2px solid var(--yellow);
+    }
+    .ka-header__bar {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+    .ka-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+    .ka-logo img {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: 2px solid var(--yellow);
+      object-fit: cover;
+    }
+    .ka-logo__text { display: flex; flex-direction: column; line-height: 1; }
+    .ka-logo__name {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.05rem;
+      color: var(--white);
+      letter-spacing: -0.02em;
+    }
+    .ka-logo__name span { color: var(--yellow); }
+    .ka-logo__tagline {
+      font-size: 0.62rem;
+      font-weight: 300;
+      color: var(--grey);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+    .ka-nav { display: flex; align-items: center; gap: 0.25rem; }
+    .ka-nav a {
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #ccc;
+      text-decoration: none;
+      padding: 0.45rem 0.85rem;
+      border-radius: 6px;
+      transition: color var(--transition), background var(--transition);
+      white-space: nowrap;
+    }
+    .ka-nav a:hover { color: var(--yellow); background: rgba(255,213,89,0.08); }
+    .ka-header__cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: var(--yellow);
+      color: var(--black);
+      font-family: var(--font-display);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      text-decoration: none;
+      padding: 0.55rem 1.2rem;
+      border-radius: 6px;
+      border: 2px solid var(--yellow);
+      transition: background var(--transition), color var(--transition);
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+    .ka-header__cta:hover { background: transparent; color: var(--yellow); }
+    .ka-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 0.4rem;
+      background: none;
+      border: none;
+    }
+    .ka-hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+    }
+    .ka-mobile-nav {
+      display: none;
+      flex-direction: column;
+      background: var(--dark);
+      border-top: 1px solid #2e2e2e;
+      padding: 1rem 2rem 1.5rem;
+      gap: 0.25rem;
+    }
+    .ka-mobile-nav a {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #ccc;
+      text-decoration: none;
+      padding: 0.65rem 0;
+      border-bottom: 1px solid #2e2e2e;
+    }
+    .ka-mobile-nav a:last-child { border-bottom: none; }
+    .ka-mobile-nav.open { display: flex; }
 
-/* ─── HERO ───────────────────────────────────────── */
-.hero {
-  background: var(--black);
-  position: relative;
-  overflow: hidden;
-}
-.hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse at 70% 50%, rgba(255,213,89,0.08) 0%, transparent 65%);
-  pointer-events: none;
-}
-.hero__inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 5rem 2rem 4rem;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  align-items: center;
-}
-.hero__badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: rgba(255,213,89,0.12);
-  border: 1px solid rgba(255,213,89,0.3);
-  border-radius: 100px;
-  padding: 0.35rem 0.9rem;
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: var(--yellow);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  margin-bottom: 1.5rem;
-}
-.hero__title {
-  font-family: var(--font-display);
-  font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 800;
-  color: var(--white);
-  line-height: 1.1;
-  margin-bottom: 1.2rem;
-}
-.hero__title span { color: var(--yellow); }
-.hero__sub {
-  font-size: 1.05rem;
-  color: #aaa;
-  line-height: 1.7;
-  margin-bottom: 2rem;
-  max-width: 480px;
-}
-.hero__cta-group { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
-.btn-primary {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: var(--yellow);
-  color: var(--black);
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 0.95rem;
-  padding: 0.85rem 2rem;
-  border-radius: 8px;
-  text-decoration: none;
-  transition: background var(--transition), transform var(--transition);
-}
-.btn-primary:hover { background: var(--yellow-dark); transform: translateY(-1px); }
-.btn-ghost {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: var(--white);
-  font-weight: 500;
-  font-size: 0.9rem;
-  text-decoration: none;
-  border: 1px solid #444;
-  padding: 0.85rem 1.6rem;
-  border-radius: 8px;
-  transition: border-color var(--transition), color var(--transition);
-}
-.btn-ghost:hover { border-color: var(--yellow); color: var(--yellow); }
+    /* ─── HERO ───────────────────────────────────────── */
+    .hero {
+      background: var(--black);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 70% 50%, rgba(255,213,89,0.08) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .hero__inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 5rem 2rem 4rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .hero__badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255,213,89,0.12);
+      border: 1px solid rgba(255,213,89,0.3);
+      border-radius: 100px;
+      padding: 0.35rem 0.9rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--yellow);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+    .hero__title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: 1.2rem;
+    }
+    .hero__title span { color: var(--yellow); }
+    .hero__sub {
+      font-size: 1.05rem;
+      color: #aaa;
+      line-height: 1.7;
+      margin-bottom: 2rem;
+      max-width: 480px;
+    }
+    .hero__cta-group { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--yellow);
+      color: var(--black);
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 0.85rem 2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background var(--transition), transform var(--transition);
+    }
+    .btn-primary:hover { background: var(--yellow-dark); transform: translateY(-1px); }
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--white);
+      font-weight: 500;
+      font-size: 0.9rem;
+      text-decoration: none;
+      border: 1px solid #444;
+      padding: 0.85rem 1.6rem;
+      border-radius: 8px;
+      transition: border-color var(--transition), color var(--transition);
+    }
+    .btn-ghost:hover { border-color: var(--yellow); color: var(--yellow); }
 
-/* Hero image placeholder */
-.hero__image {
-  border-radius: 16px;
-  overflow: hidden;
-  border: 1px solid #2e2e2e;
-  aspect-ratio: 4/3;
-  background: #1a1a1a;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0.75rem;
-}
-.hero__image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-.img-placeholder {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0.6rem;
-  color: #555;
-  text-align: center;
-  padding: 2rem;
-  width: 100%;
-  height: 100%;
-}
-.img-placeholder svg { opacity: 0.4; }
-.img-placeholder p { font-size: 0.8rem; line-height: 1.5; opacity: 0.6; }
-.img-placeholder strong { display: block; font-size: 0.85rem; opacity: 0.8; margin-bottom: 0.25rem; }
+    /* Hero image placeholder */
+    .hero__image {
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid #2e2e2e;
+      aspect-ratio: 4/3;
+      background: #1a1a1a;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+    }
+    .hero__image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .img-placeholder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      color: #555;
+      text-align: center;
+      padding: 2rem;
+      width: 100%;
+      height: 100%;
+    }
+    .img-placeholder svg { opacity: 0.4; }
+    .img-placeholder p { font-size: 0.8rem; line-height: 1.5; opacity: 0.6; }
+    .img-placeholder strong { display: block; font-size: 0.85rem; opacity: 0.8; margin-bottom: 0.25rem; }
 
-/* ─── TRUST BAR ──────────────────────────────────── */
-.trust-bar {
-  background: var(--light);
-  border-top: 1px solid #e5e5e0;
-  border-bottom: 1px solid #e5e5e0;
-}
-.trust-bar__inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 1.5rem 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 3rem;
-  flex-wrap: wrap;
-}
-.trust-item {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  font-size: 0.85rem;
-  color: #555;
-  font-weight: 500;
-}
-.trust-item svg { color: var(--yellow); flex-shrink: 0; }
-.trust-item strong { color: var(--black); }
+    /* ─── TRUST BAR ──────────────────────────────────── */
+    .trust-bar {
+      background: var(--light);
+      border-top: 1px solid #e5e5e0;
+      border-bottom: 1px solid #e5e5e0;
+    }
+    .trust-bar__inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1.5rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 3rem;
+      flex-wrap: wrap;
+    }
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.85rem;
+      color: #555;
+      font-weight: 500;
+    }
+    .trust-item svg { color: var(--yellow); flex-shrink: 0; }
+    .trust-item strong { color: var(--black); }
 
-/* ─── HOW IT WORKS ───────────────────────────────── */
-.section { padding: 5rem 2rem; }
-.section-inner { max-width: 1200px; margin: 0 auto; }
-.section-label {
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--yellow);
-  margin-bottom: 0.75rem;
-}
-.section-title {
-  font-family: var(--font-display);
-  font-size: clamp(1.6rem, 3vw, 2.2rem);
-  font-weight: 800;
-  color: var(--black);
-  line-height: 1.2;
-  margin-bottom: 1rem;
-}
-.section-sub {
-  font-size: 1rem;
-  color: #666;
-  line-height: 1.7;
-  max-width: 560px;
-  margin-bottom: 3rem;
-}
+    /* ─── HOW IT WORKS ───────────────────────────────── */
+    .section { padding: 5rem 2rem; }
+    .section-inner { max-width: 1200px; margin: 0 auto; }
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--yellow);
+      margin-bottom: 0.75rem;
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 800;
+      color: var(--black);
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+    .section-sub {
+      font-size: 1rem;
+      color: #666;
+      line-height: 1.7;
+      max-width: 560px;
+      margin-bottom: 3rem;
+    }
 
-.how-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-}
-.how-card {
-  background: var(--light);
-  border-radius: 12px;
-  padding: 2rem;
-  border: 1px solid #e5e5e0;
-  position: relative;
-}
-.how-num {
-  font-family: var(--font-display);
-  font-size: 3rem;
-  font-weight: 800;
-  color: var(--yellow);
-  opacity: 0.25;
-  line-height: 1;
-  margin-bottom: 0.75rem;
-}
-.how-card h3 {
-  font-family: var(--font-display);
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--black);
-  margin-bottom: 0.5rem;
-}
-.how-card p { font-size: 0.88rem; color: #666; line-height: 1.6; }
+    .how-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    .how-card {
+      background: var(--light);
+      border-radius: 12px;
+      padding: 2rem;
+      border: 1px solid #e5e5e0;
+      position: relative;
+    }
+    .how-num {
+      font-family: var(--font-display);
+      font-size: 3rem;
+      font-weight: 800;
+      color: var(--yellow);
+      opacity: 0.25;
+      line-height: 1;
+      margin-bottom: 0.75rem;
+    }
+    .how-card h3 {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: 0.5rem;
+    }
+    .how-card p { font-size: 0.88rem; color: #666; line-height: 1.6; }
 
-/* ─── COURSES ────────────────────────────────────── */
-.courses-section { background: var(--light); }
-.courses-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
-}
-.course-card {
-  background: var(--white);
-  border-radius: 12px;
-  border: 1px solid #e5e5e0;
-  overflow: hidden;
-  display: flex;
-  align-items: stretch;
-  transition: box-shadow var(--transition), transform var(--transition);
-}
-.course-card:hover {
-  box-shadow: 0 8px 32px rgba(0,0,0,0.08);
-  transform: translateY(-2px);
-}
-.course-thumb {
-  width: 120px;
-  flex-shrink: 0;
-  background: var(--black);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1rem;
-}
-.course-thumb .img-placeholder {
-  background: #1a1a1a;
-  border-radius: 8px;
-  width: 100%;
-  height: 80px;
-  font-size: 0.65rem;
-}
-.course-info { padding: 1.25rem 1.5rem; }
-.course-info h3 {
-  font-family: var(--font-display);
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: var(--black);
-  margin-bottom: 0.4rem;
-}
-.course-info p { font-size: 0.82rem; color: #777; line-height: 1.5; }
-.course-price {
-  margin-top: 0.6rem;
-  font-size: 0.8rem;
-  color: #aaa;
-}
-.course-price strong { color: var(--black); }
+    /* ─── COURSES ────────────────────────────────────── */
+    .courses-section { background: var(--light); }
+    .courses-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+    .course-card {
+      background: var(--white);
+      border-radius: 12px;
+      border: 1px solid #e5e5e0;
+      overflow: hidden;
+      display: flex;
+      align-items: stretch;
+      transition: box-shadow var(--transition), transform var(--transition);
+    }
+    .course-card:hover {
+      box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+      transform: translateY(-2px);
+    }
+    .course-thumb {
+      width: 120px;
+      flex-shrink: 0;
+      background: var(--black);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+    .course-thumb .img-placeholder {
+      background: #1a1a1a;
+      border-radius: 8px;
+      width: 100%;
+      height: 80px;
+      font-size: 0.65rem;
+    }
+    .course-info { padding: 1.25rem 1.5rem; }
+    .course-info h3 {
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: 0.4rem;
+    }
+    .course-info p { font-size: 0.82rem; color: #777; line-height: 1.5; }
+    .course-price {
+      margin-top: 0.6rem;
+      font-size: 0.8rem;
+      color: #aaa;
+    }
+    .course-price strong { color: var(--black); }
 
-/* ─── PRICING ────────────────────────────────────── */
-.pricing-section { background: var(--white); }
-.pricing-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-  margin-top: 1rem;
-}
-.pricing-card {
-  border-radius: 16px;
-  border: 2px solid #e5e5e0;
-  padding: 2.5rem 2rem;
-  position: relative;
-  transition: border-color var(--transition), box-shadow var(--transition);
-}
-.pricing-card:hover {
-  border-color: var(--yellow);
-  box-shadow: 0 8px 40px rgba(255,213,89,0.12);
-}
-.pricing-card.featured {
-  border-color: var(--yellow);
-  background: var(--black);
-}
-.featured-tag {
-  position: absolute;
-  top: -14px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--yellow);
-  color: var(--black);
-  font-family: var(--font-display);
-  font-size: 0.7rem;
-  font-weight: 800;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  padding: 0.3rem 1rem;
-  border-radius: 100px;
-  white-space: nowrap;
-}
-.pricing-tier {
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--yellow);
-  margin-bottom: 0.5rem;
-}
-.pricing-seats {
-  font-family: var(--font-display);
-  font-size: 1.1rem;
-  font-weight: 700;
-  margin-bottom: 1.5rem;
-}
-.pricing-card:not(.featured) .pricing-seats { color: var(--black); }
-.pricing-card.featured .pricing-seats { color: var(--white); }
+    /* ─── PRICING ────────────────────────────────────── */
+    .pricing-section { background: var(--white); }
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+    .pricing-card {
+      border-radius: 16px;
+      border: 2px solid #e5e5e0;
+      padding: 2.5rem 2rem;
+      position: relative;
+      transition: border-color var(--transition), box-shadow var(--transition);
+    }
+    .pricing-card:hover {
+      border-color: var(--yellow);
+      box-shadow: 0 8px 40px rgba(255,213,89,0.12);
+    }
+    .pricing-card.featured {
+      border-color: var(--yellow);
+      background: var(--black);
+    }
+    .featured-tag {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--yellow);
+      color: var(--black);
+      font-family: var(--font-display);
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.3rem 1rem;
+      border-radius: 100px;
+      white-space: nowrap;
+    }
+    .pricing-tier {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--yellow);
+      margin-bottom: 0.5rem;
+    }
+    .pricing-seats {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+    .pricing-card:not(.featured) .pricing-seats { color: var(--black); }
+    .pricing-card.featured .pricing-seats { color: var(--white); }
 
-.price-block { margin-bottom: 1.5rem; }
-.price-was {
-  font-size: 0.85rem;
-  color: #aaa;
-  text-decoration: line-through;
-  margin-bottom: 0.15rem;
-}
-.price-now {
-  font-family: var(--font-display);
-  font-size: 2.8rem;
-  font-weight: 800;
-  line-height: 1;
-}
-.pricing-card:not(.featured) .price-now { color: var(--black); }
-.pricing-card.featured .price-now { color: var(--yellow); }
-.price-per {
-  font-size: 0.8rem;
-  color: #aaa;
-  margin-top: 0.25rem;
-}
-.price-saving {
-  display: inline-block;
-  background: rgba(255,213,89,0.15);
-  color: #b8860b;
-  font-size: 0.75rem;
-  font-weight: 700;
-  padding: 0.2rem 0.6rem;
-  border-radius: 4px;
-  margin-top: 0.5rem;
-}
-.pricing-card.featured .price-saving {
-  background: rgba(255,213,89,0.2);
-  color: var(--yellow);
-}
-.pricing-divider {
-  border: none;
-  border-top: 1px solid #e5e5e0;
-  margin: 1.5rem 0;
-}
-.pricing-card.featured .pricing-divider { border-color: #2e2e2e; }
-.pricing-features { list-style: none; display: flex; flex-direction: column; gap: 0.65rem; margin-bottom: 2rem; }
-.pricing-features li {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.6rem;
-  font-size: 0.85rem;
-}
-.pricing-card:not(.featured) .pricing-features li { color: #555; }
-.pricing-card.featured .pricing-features li { color: #ccc; }
-.pricing-features li::before {
-  content: '✓';
-  color: var(--yellow);
-  font-weight: 700;
-  flex-shrink: 0;
-  margin-top: 1px;
-}
-.pricing-btn {
-  display: block;
-  text-align: center;
-  padding: 0.9rem;
-  border-radius: 8px;
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 0.9rem;
-  text-decoration: none;
-  transition: background var(--transition), color var(--transition), transform var(--transition);
-}
-.pricing-btn:hover { transform: translateY(-1px); }
-.pricing-card:not(.featured) .pricing-btn {
-  background: var(--black);
-  color: var(--yellow);
-}
-.pricing-card:not(.featured) .pricing-btn:hover { background: #222; }
-.pricing-card.featured .pricing-btn {
-  background: var(--yellow);
-  color: var(--black);
-}
-.pricing-card.featured .pricing-btn:hover { background: var(--yellow-dark); }
+    .price-block { margin-bottom: 1.5rem; }
+    .price-was {
+      font-size: 0.85rem;
+      color: #aaa;
+      text-decoration: line-through;
+      margin-bottom: 0.15rem;
+    }
+    .price-now {
+      font-family: var(--font-display);
+      font-size: 2.8rem;
+      font-weight: 800;
+      line-height: 1;
+    }
+    .pricing-card:not(.featured) .price-now { color: var(--black); }
+    .pricing-card.featured .price-now { color: var(--yellow); }
+    .price-per {
+      font-size: 0.8rem;
+      color: #aaa;
+      margin-top: 0.25rem;
+    }
+    .price-saving {
+      display: inline-block;
+      background: rgba(255,213,89,0.15);
+      color: #b8860b;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      margin-top: 0.5rem;
+    }
+    .pricing-card.featured .price-saving {
+      background: rgba(255,213,89,0.2);
+      color: var(--yellow);
+    }
+    .pricing-divider {
+      border: none;
+      border-top: 1px solid #e5e5e0;
+      margin: 1.5rem 0;
+    }
+    .pricing-card.featured .pricing-divider { border-color: #2e2e2e; }
+    .pricing-features { list-style: none; display: flex; flex-direction: column; gap: 0.65rem; margin-bottom: 2rem; }
+    .pricing-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      font-size: 0.85rem;
+    }
+    .pricing-card:not(.featured) .pricing-features li { color: #555; }
+    .pricing-card.featured .pricing-features li { color: #ccc; }
+    .pricing-features li::before {
+      content: '✓';
+      color: var(--yellow);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .pricing-btn {
+      display: block;
+      text-align: center;
+      padding: 0.9rem;
+      border-radius: 8px;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: background var(--transition), color var(--transition), transform var(--transition);
+    }
+    .pricing-btn:hover { transform: translateY(-1px); }
+    .pricing-card:not(.featured) .pricing-btn {
+      background: var(--black);
+      color: var(--yellow);
+    }
+    .pricing-card:not(.featured) .pricing-btn:hover { background: #222; }
+    .pricing-card.featured .pricing-btn {
+      background: var(--yellow);
+      color: var(--black);
+    }
+    .pricing-card.featured .pricing-btn:hover { background: var(--yellow-dark); }
 
-/* ─── FAQ / NOTE ─────────────────────────────────── */
-.note-section { background: var(--light); }
-.note-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
-}
-.note-card {
-  background: var(--white);
-  border-radius: 12px;
-  padding: 1.75rem;
-  border: 1px solid #e5e5e0;
-}
-.note-card h3 {
-  font-family: var(--font-display);
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--black);
-  margin-bottom: 0.5rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-.note-card h3 span { color: var(--yellow); font-size: 1.1rem; }
-.note-card p { font-size: 0.88rem; color: #666; line-height: 1.65; }
+    /* ─── FAQ / NOTE ─────────────────────────────────── */
+    .note-section { background: var(--light); }
+    .note-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+    .note-card {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 1.75rem;
+      border: 1px solid #e5e5e0;
+    }
+    .note-card h3 {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .note-card h3 span { color: var(--yellow); font-size: 1.1rem; }
+    .note-card p { font-size: 0.88rem; color: #666; line-height: 1.65; }
 
-/* ─── CTA BANNER ─────────────────────────────────── */
-.cta-banner {
-  background: var(--black);
-  border-top: 3px solid var(--yellow);
-}
-.cta-banner__inner {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 5rem 2rem;
-  text-align: center;
-}
-.cta-banner h2 {
-  font-family: var(--font-display);
-  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
-  font-weight: 800;
-  color: var(--white);
-  line-height: 1.2;
-  margin-bottom: 1rem;
-}
-.cta-banner h2 span { color: var(--yellow); }
-.cta-banner p {
-  color: #888;
-  font-size: 1rem;
-  line-height: 1.7;
-  margin-bottom: 2.5rem;
-  max-width: 560px;
-  margin-left: auto;
-  margin-right: auto;
-}
-.cta-banner .btn-group { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    /* ─── CTA BANNER ─────────────────────────────────── */
+    .cta-banner {
+      background: var(--black);
+      border-top: 3px solid var(--yellow);
+    }
+    .cta-banner__inner {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 5rem 2rem;
+      text-align: center;
+    }
+    .cta-banner h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+    .cta-banner h2 span { color: var(--yellow); }
+    .cta-banner p {
+      color: #888;
+      font-size: 1rem;
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+      max-width: 560px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .cta-banner .btn-group { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
 
-/* ─── FOOTER ─────────────────────────────────────── */
-.ka-footer {
-  background: var(--black);
-  border-top: 3px solid var(--yellow);
-  color: #ccc;
-  font-family: var(--font-body);
-}
-.ka-footer__top {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 3.5rem 2rem 2.5rem;
-  display: grid;
-  grid-template-columns: 1.6fr 1fr 1fr;
-  gap: 3rem;
-}
-.ka-footer__logo {
-  display: flex;
-  align-items: center;
-  gap: 0.65rem;
-  text-decoration: none;
-  margin-bottom: 1rem;
-}
-.ka-footer__logo img {
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  border: 2px solid var(--yellow);
-}
-.ka-footer__logo-name {
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-size: 1rem;
-  color: var(--white);
-}
-.ka-footer__logo-name span { color: var(--yellow); }
-.ka-footer__desc {
-  font-size: 0.83rem;
-  line-height: 1.7;
-  color: #888;
-  margin-bottom: 1.5rem;
-  max-width: 260px;
-}
-.ka-footer__social { display: flex; gap: 0.6rem; }
-.ka-footer__social a {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-  border-radius: 8px;
-  border: 1px solid #333;
-  color: #888;
-  text-decoration: none;
-  font-size: 0.85rem;
-  transition: border-color var(--transition), color var(--transition);
-}
-.ka-footer__social a:hover { border-color: var(--yellow); color: var(--yellow); }
-.ka-footer__cert {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: rgba(255,213,89,0.08);
-  border: 1px solid rgba(255,213,89,0.25);
-  border-radius: 8px;
-  padding: 0.6rem 0.9rem;
-  margin-top: 1.5rem;
-  font-size: 0.75rem;
-  color: #aaa;
-}
-.ka-footer__cert strong { color: var(--yellow); font-weight: 600; }
-.ka-footer__col h4 {
-  font-family: var(--font-display);
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--yellow);
-  margin-bottom: 1rem;
-}
-.ka-footer__col ul { list-style: none; display: flex; flex-direction: column; gap: 0.55rem; }
-.ka-footer__col ul li a {
-  font-size: 0.84rem;
-  color: #888;
-  text-decoration: none;
-  transition: color var(--transition);
-}
-.ka-footer__col ul li a:hover { color: var(--white); }
-.ka-footer__bottom {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 1.2rem 2rem;
-  border-top: 1px solid #222;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-.ka-footer__copy { font-size: 0.78rem; color: #555; }
+    /* ─── FOOTER ─────────────────────────────────────── */
+    .ka-footer {
+      background: var(--black);
+      border-top: 3px solid var(--yellow);
+      color: #ccc;
+      font-family: var(--font-body);
+    }
+    .ka-footer__top {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 3.5rem 2rem 2.5rem;
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1fr;
+      gap: 3rem;
+    }
+    .ka-footer__logo {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      text-decoration: none;
+      margin-bottom: 1rem;
+    }
+    .ka-footer__logo img {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 2px solid var(--yellow);
+    }
+    .ka-footer__logo-name {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1rem;
+      color: var(--white);
+    }
+    .ka-footer__logo-name span { color: var(--yellow); }
+    .ka-footer__desc {
+      font-size: 0.83rem;
+      line-height: 1.7;
+      color: #888;
+      margin-bottom: 1.5rem;
+      max-width: 260px;
+    }
+    .ka-footer__social { display: flex; gap: 0.6rem; }
+    .ka-footer__social a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      border: 1px solid #333;
+      color: #888;
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: border-color var(--transition), color var(--transition);
+    }
+    .ka-footer__social a:hover { border-color: var(--yellow); color: var(--yellow); }
+    .ka-footer__cert {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255,213,89,0.08);
+      border: 1px solid rgba(255,213,89,0.25);
+      border-radius: 8px;
+      padding: 0.6rem 0.9rem;
+      margin-top: 1.5rem;
+      font-size: 0.75rem;
+      color: #aaa;
+    }
+    .ka-footer__cert strong { color: var(--yellow); font-weight: 600; }
+    .ka-footer__col h4 {
+      font-family: var(--font-display);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--yellow);
+      margin-bottom: 1rem;
+    }
+    .ka-footer__col ul { list-style: none; display: flex; flex-direction: column; gap: 0.55rem; }
+    .ka-footer__col ul li a {
+      font-size: 0.84rem;
+      color: #888;
+      text-decoration: none;
+      transition: color var(--transition);
+    }
+    .ka-footer__col ul li a:hover { color: var(--white); }
+    .ka-footer__bottom {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1.2rem 2rem;
+      border-top: 1px solid #222;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .ka-footer__copy { font-size: 0.78rem; color: #555; }
 
-/* ─── RESPONSIVE ─────────────────────────────────── */
-@media (max-width: 900px) {
-  .hero__inner { grid-template-columns: 1fr; gap: 2.5rem; }
-  .hero__image { display: none; }
-  .how-grid { grid-template-columns: 1fr; }
-  .courses-grid { grid-template-columns: 1fr; }
-  .pricing-grid { grid-template-columns: 1fr; }
-  .note-grid { grid-template-columns: 1fr; }
-  .ka-footer__top { grid-template-columns: 1fr 1fr; gap: 2rem; }
-  .ka-nav, .ka-header__cta { display: none; }
-  .ka-hamburger { display: flex; }
-}
-@media (max-width: 600px) {
-  .section { padding: 3.5rem 1.25rem; }
-  .pricing-card { padding: 2rem 1.5rem; }
-  .ka-footer__top { grid-template-columns: 1fr; }
-}
-```
-
+    /* ─── RESPONSIVE ─────────────────────────────────── */
+    @media (max-width: 900px) {
+      .hero__inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .hero__image { display: none; }
+      .how-grid { grid-template-columns: 1fr; }
+      .courses-grid { grid-template-columns: 1fr; }
+      .pricing-grid { grid-template-columns: 1fr; }
+      .note-grid { grid-template-columns: 1fr; }
+      .ka-footer__top { grid-template-columns: 1fr 1fr; gap: 2rem; }
+      .ka-nav, .ka-header__cta { display: none; }
+      .ka-hamburger { display: flex; }
+    }
+    @media (max-width: 600px) {
+      .section { padding: 3.5rem 1.25rem; }
+      .pricing-card { padding: 2rem 1.5rem; }
+      .ka-footer__top { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
 
   <!-- HEADER -->
-
   <header class="ka-header">
     <div class="ka-header__bar">
       <a href="/" class="ka-logo">
@@ -758,7 +753,6 @@ body {
   </header>
 
   <!-- HERO -->
-
   <section class="hero">
     <div class="hero__inner">
       <div class="hero__content">
@@ -784,7 +778,6 @@ body {
   </section>
 
   <!-- TRUST BAR -->
-
   <div class="trust-bar">
     <div class="trust-bar__inner">
       <div class="trust-item">
@@ -811,7 +804,6 @@ body {
   </div>
 
   <!-- HOW IT WORKS -->
-
   <section class="section">
     <div class="section-inner">
       <p class="section-label">Simple & Flexible</p>
@@ -838,7 +830,6 @@ body {
   </section>
 
   <!-- COURSES -->
-
   <section class="section courses-section">
     <div class="section-inner">
       <p class="section-label">What's Included</p>
@@ -846,59 +837,55 @@ body {
       <p class="section-sub">All courses are self-paced with lifetime access, downloadable resources, quizzes, and a certificate from Kaizen Academy Australia.</p>
       <div class="courses-grid">
 
-```
-    <div class="course-card">
-      <div class="course-thumb">
-        <img src="https://firebasestorage.googleapis.com/v0/b/image-upload-ka.firebasestorage.app/o/Default%2Ftps.png?alt=media&token=9a976590-1fa2-4165-9be4-2dc661d67502" alt="TPS & Lean Fundamentals" style="width:100%;height:100%;object-fit:cover;" />
-      </div>
-      <div class="course-info">
-        <h3>TPS & Lean Fundamentals</h3>
-        <p>Toyota Production System foundations — JIT, Jidoka, heijunka, waste elimination, and the Toyota Way principles.</p>
-        <div class="course-price">Retail: <strong>$99/seat</strong></div>
+        <div class="course-card">
+          <div class="course-thumb">
+            <img src="https://firebasestorage.googleapis.com/v0/b/image-upload-ka.firebasestorage.app/o/Default%2Ftps.png?alt=media&token=9a976590-1fa2-4165-9be4-2dc661d67502" alt="TPS & Lean Fundamentals" style="width:100%;height:100%;object-fit:cover;" />
+          </div>
+          <div class="course-info">
+            <h3>TPS & Lean Fundamentals</h3>
+            <p>Toyota Production System foundations — JIT, Jidoka, heijunka, waste elimination, and the Toyota Way principles.</p>
+            <div class="course-price">Retail: <strong>$99/seat</strong></div>
+          </div>
+        </div>
+
+        <div class="course-card">
+          <div class="course-thumb">
+            <img src="https://firebasestorage.googleapis.com/v0/b/image-upload-ka.firebasestorage.app/o/Default%2Fvsm.png?alt=media&token=648945fa-b452-4347-ad76-cd393ff28a44" alt="Value Stream Mapping" style="width:100%;height:100%;object-fit:cover;" />
+          </div>
+          <div class="course-info">
+            <h3>Advanced Value Stream Mapping</h3>
+            <p>Map and analyse end-to-end workflows. Identify waste, design future states, and build implementation plans.</p>
+            <div class="course-price">Retail: <strong>$89/seat</strong></div>
+          </div>
+        </div>
+
+        <div class="course-card">
+          <div class="course-thumb">
+            <img src="https://firebasestorage.googleapis.com/v0/b/image-upload-ka.firebasestorage.app/o/Default%2Fsps.png?alt=media&token=b319248d-f761-48ab-8332-0331de04a75b" alt="Scientific Problem Solving" style="width:100%;height:100%;object-fit:cover;" />
+          </div>
+          <div class="course-info">
+            <h3>Scientific Problem Solving</h3>
+            <p>Master A3 thinking and the 7 QC tools — histograms, fishbone, Pareto, control charts, scatter diagrams, and more.</p>
+            <div class="course-price">Retail: <strong>$180/seat</strong></div>
+          </div>
+        </div>
+
+        <div class="course-card">
+          <div class="course-thumb">
+            <img src="https://firebasestorage.googleapis.com/v0/b/image-upload-ka.firebasestorage.app/o/Default%2Fbpm.png?alt=media&token=ca65d318-e5ec-42e6-9612-c28921fa733d" alt="Business Process Management" style="width:100%;height:100%;object-fit:cover;" />
+          </div>
+          <div class="course-info">
+            <h3>Business Process Management</h3>
+            <p>Map any process step by step. Practical guide to BPM using A3 problem solving with downloadable templates.</p>
+            <div class="course-price">Retail: <strong>$250/seat</strong></div>
+          </div>
+        </div>
+
       </div>
     </div>
-
-    <div class="course-card">
-      <div class="course-thumb">
-        <img src="https://firebasestorage.googleapis.com/v0/b/image-upload-ka.firebasestorage.app/o/Default%2Fvsm.png?alt=media&token=648945fa-b452-4347-ad76-cd393ff28a44" alt="Value Stream Mapping" style="width:100%;height:100%;object-fit:cover;" />
-      </div>
-      <div class="course-info">
-        <h3>Advanced Value Stream Mapping</h3>
-        <p>Map and analyse end-to-end workflows. Identify waste, design future states, and build implementation plans.</p>
-        <div class="course-price">Retail: <strong>$89/seat</strong></div>
-      </div>
-    </div>
-
-    <div class="course-card">
-      <div class="course-thumb">
-        <img src="https://firebasestorage.googleapis.com/v0/b/image-upload-ka.firebasestorage.app/o/Default%2Fsps.png?alt=media&token=b319248d-f761-48ab-8332-0331de04a75b" alt="Scientific Problem Solving" style="width:100%;height:100%;object-fit:cover;" />
-      </div>
-      <div class="course-info">
-        <h3>Scientific Problem Solving</h3>
-        <p>Master A3 thinking and the 7 QC tools — histograms, fishbone, Pareto, control charts, scatter diagrams, and more.</p>
-        <div class="course-price">Retail: <strong>$180/seat</strong></div>
-      </div>
-    </div>
-
-    <div class="course-card">
-      <div class="course-thumb">
-        <img src="https://firebasestorage.googleapis.com/v0/b/image-upload-ka.firebasestorage.app/o/Default%2Fbpm.png?alt=media&token=ca65d318-e5ec-42e6-9612-c28921fa733d" alt="Business Process Management" style="width:100%;height:100%;object-fit:cover;" />
-      </div>
-      <div class="course-info">
-        <h3>Business Process Management</h3>
-        <p>Map any process step by step. Practical guide to BPM using A3 problem solving with downloadable templates.</p>
-        <div class="course-price">Retail: <strong>$250/seat</strong></div>
-      </div>
-    </div>
-
-  </div>
-</div>
-```
-
   </section>
 
   <!-- PRICING -->
-
   <section class="section pricing-section" id="pricing">
     <div class="section-inner">
       <p class="section-label">Corporate Pricing</p>
@@ -906,97 +893,93 @@ body {
       <p class="section-sub">Volume pricing that rewards growth. Seats are fully transferable — reassign to new team members at any time.</p>
       <div class="pricing-grid">
 
-```
-    <!-- Starter -->
-    <div class="pricing-card">
-      <div class="pricing-tier">Starter</div>
-      <div class="pricing-seats">12 Seats</div>
-      <div class="price-block">
-        <div class="price-was">Was $1,848 at retail avg.</div>
-        <div class="price-now">$999</div>
-        <div class="price-per">$83 per seat · any 1 course</div>
-        <div class="price-saving">Save $849 — 46% off</div>
+        <!-- Starter -->
+        <div class="pricing-card">
+          <div class="pricing-tier">Starter</div>
+          <div class="pricing-seats">12 Seats</div>
+          <div class="price-block">
+            <div class="price-was">Was $1,848 at retail avg.</div>
+            <div class="price-now">$999</div>
+            <div class="price-per">$83 per seat · any 1 course</div>
+            <div class="price-saving">Save $849 — 46% off</div>
+          </div>
+          <hr class="pricing-divider">
+          <ul class="pricing-features">
+            <li>12 flexible seat licenses</li>
+            <li>Each seat: choose any 1 of 4 courses</li>
+            <li>Lifetime access per seat holder</li>
+            <li>Seats transferable before course completion</li>
+            <li>Up to 12 certified graduates per package</li>
+            <li>Certificate per completion</li>
+            <li>Downloadable templates & resources</li>
+          </ul>
+          <stripe-buy-button
+            buy-button-id="buy_btn_1TSys4EPmXfj7HQjmcM75Htf"
+            publishable-key="pk_live_51QTMi1EPmXfj7HQjRKWArbj598SByt08dZqNJql9vJnIYxpp5ff0QQc17iWr4aPCVavn7I0j2hz6pIIhSrW1WMRV00BISNrVTo"
+          ></stripe-buy-button>
+        </div>
+
+        <!-- Growth — Featured -->
+        <div class="pricing-card featured">
+          <div class="featured-tag">Most Popular</div>
+          <div class="pricing-tier">Growth</div>
+          <div class="pricing-seats">24 Seats</div>
+          <div class="price-block">
+            <div class="price-was">Was $3,696 at retail avg.</div>
+            <div class="price-now">$1,799</div>
+            <div class="price-per">$75 per seat · any 1 course</div>
+            <div class="price-saving">Save $1,897 — 51% off</div>
+          </div>
+          <hr class="pricing-divider">
+          <ul class="pricing-features">
+            <li>24 flexible seat licenses</li>
+            <li>Each seat: choose any 1 of 4 courses</li>
+            <li>Lifetime access per seat holder</li>
+            <li>Seats transferable before course completion</li>
+            <li>Up to 24 certified graduates per package</li>
+            <li>Certificate per completion</li>
+            <li>Downloadable templates & resources</li>
+            <li>Priority email support</li>
+          </ul>
+          <stripe-buy-button
+            buy-button-id="buy_btn_1TSyrNEPmXfj7HQjDVtMl6WV"
+            publishable-key="pk_live_51QTMi1EPmXfj7HQjRKWArbj598SByt08dZqNJql9vJnIYxpp5ff0QQc17iWr4aPCVavn7I0j2hz6pIIhSrW1WMRV00BISNrVTo"
+          ></stripe-buy-button>
+        </div>
+
+        <!-- Enterprise -->
+        <div class="pricing-card">
+          <div class="pricing-tier">Enterprise</div>
+          <div class="pricing-seats">48 Seats</div>
+          <div class="price-block">
+            <div class="price-was">Was $7,392 at retail avg.</div>
+            <div class="price-now">$2,999</div>
+            <div class="price-per">$62 per seat · any 1 course</div>
+            <div class="price-saving">Save $4,393 — 59% off</div>
+          </div>
+          <hr class="pricing-divider">
+          <ul class="pricing-features">
+            <li>48 flexible seat licenses</li>
+            <li>Each seat: choose any 1 of 4 courses</li>
+            <li>Lifetime access per seat holder</li>
+            <li>Seats transferable before course completion</li>
+            <li>Up to 48 certified graduates per package</li>
+            <li>Certificate per completion</li>
+            <li>Downloadable templates & resources</li>
+            <li>Priority email support</li>
+            <li>Custom onboarding session</li>
+          </ul>
+          <stripe-buy-button
+            buy-button-id="buy_btn_1TSyt5EPmXfj7HQjwiX6Kejy"
+            publishable-key="pk_live_51QTMi1EPmXfj7HQjRKWArbj598SByt08dZqNJql9vJnIYxpp5ff0QQc17iWr4aPCVavn7I0j2hz6pIIhSrW1WMRV00BISNrVTo"
+          ></stripe-buy-button>
+        </div>
+
       </div>
-      <hr class="pricing-divider">
-      <ul class="pricing-features">
-        <li>12 flexible seat licenses</li>
-        <li>Each seat: choose any 1 of 4 courses</li>
-        <li>Lifetime access per seat holder</li>
-        <li>Seats transferable before course completion</li>
-        <li>Up to 12 certified graduates per package</li>
-        <li>Certificate per completion</li>
-        <li>Downloadable templates & resources</li>
-      </ul>
-      <stripe-buy-button
-        buy-button-id="buy_btn_1TSys4EPmXfj7HQjmcM75Htf"
-        publishable-key="pk_live_51QTMi1EPmXfj7HQjRKWArbj598SByt08dZqNJql9vJnIYxpp5ff0QQc17iWr4aPCVavn7I0j2hz6pIIhSrW1WMRV00BISNrVTo"
-      ></stripe-buy-button>
     </div>
-
-    <!-- Growth — Featured -->
-    <div class="pricing-card featured">
-      <div class="featured-tag">Most Popular</div>
-      <div class="pricing-tier">Growth</div>
-      <div class="pricing-seats">24 Seats</div>
-      <div class="price-block">
-        <div class="price-was">Was $3,696 at retail avg.</div>
-        <div class="price-now">$1,799</div>
-        <div class="price-per">$75 per seat · any 1 course</div>
-        <div class="price-saving">Save $1,897 — 51% off</div>
-      </div>
-      <hr class="pricing-divider">
-      <ul class="pricing-features">
-        <li>24 flexible seat licenses</li>
-        <li>Each seat: choose any 1 of 4 courses</li>
-        <li>Lifetime access per seat holder</li>
-        <li>Seats transferable before course completion</li>
-        <li>Up to 24 certified graduates per package</li>
-        <li>Certificate per completion</li>
-        <li>Downloadable templates & resources</li>
-        <li>Priority email support</li>
-      </ul>
-      <stripe-buy-button
-        buy-button-id="buy_btn_1TSyrNEPmXfj7HQjDVtMl6WV"
-        publishable-key="pk_live_51QTMi1EPmXfj7HQjRKWArbj598SByt08dZqNJql9vJnIYxpp5ff0QQc17iWr4aPCVavn7I0j2hz6pIIhSrW1WMRV00BISNrVTo"
-      ></stripe-buy-button>
-    </div>
-
-    <!-- Enterprise -->
-    <div class="pricing-card">
-      <div class="pricing-tier">Enterprise</div>
-      <div class="pricing-seats">48 Seats</div>
-      <div class="price-block">
-        <div class="price-was">Was $7,392 at retail avg.</div>
-        <div class="price-now">$2,999</div>
-        <div class="price-per">$62 per seat · any 1 course</div>
-        <div class="price-saving">Save $4,393 — 59% off</div>
-      </div>
-      <hr class="pricing-divider">
-      <ul class="pricing-features">
-        <li>48 flexible seat licenses</li>
-        <li>Each seat: choose any 1 of 4 courses</li>
-        <li>Lifetime access per seat holder</li>
-        <li>Seats transferable before course completion</li>
-        <li>Up to 48 certified graduates per package</li>
-        <li>Certificate per completion</li>
-        <li>Downloadable templates & resources</li>
-        <li>Priority email support</li>
-        <li>Custom onboarding session</li>
-      </ul>
-      <stripe-buy-button
-        buy-button-id="buy_btn_1TSyt5EPmXfj7HQjwiX6Kejy"
-        publishable-key="pk_live_51QTMi1EPmXfj7HQjRKWArbj598SByt08dZqNJql9vJnIYxpp5ff0QQc17iWr4aPCVavn7I0j2hz6pIIhSrW1WMRV00BISNrVTo"
-      ></stripe-buy-button>
-    </div>
-
-  </div>
-</div>
-```
-
   </section>
 
   <!-- NOTES / FAQ -->
-
   <section class="section note-section">
     <div class="section-inner">
       <p class="section-label">Good to Know</p>
@@ -1023,7 +1006,6 @@ body {
   </section>
 
   <!-- CTA BANNER -->
-
   <section class="cta-banner">
     <div class="cta-banner__inner">
       <h2>Ready to Build a <span>Lean Culture</span> Across Your Team?</h2>
@@ -1036,7 +1018,6 @@ body {
   </section>
 
   <!-- FOOTER -->
-
   <footer class="ka-footer">
     <div class="ka-footer__top">
       <div>
