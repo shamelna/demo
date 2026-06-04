@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Free Live Workshop — Structured Problem Solving | Kaizen Academy</title>
+  <link rel="icon" href="http://practitioner.kaizenacademy.education/Tcia.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --yellow:        #ffd559;
+      --yellow-dark:   #e6be3e;
+      --yellow-soft:   rgba(255,213,89,0.08);
+      --yellow-border: rgba(255,213,89,0.25);
+      --black:         #0d0d0d;
+      --dark:          #1a1a1a;
+      --mid:           #2e2e2e;
+      --charcoal:      #36414D;
+      --grey:          #8a8a8a;
+      --grey-light:    #c4c4c4;
+      --light:         #f5f5f0;
+      --cream:         #faf9f4;
+      --white:         #ffffff;
+      --border:        #e5e5e0;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--light);
+      color: var(--black);
+      line-height: 1.6;
+      text-wrap: pretty;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      background: var(--black);
+      border-bottom: 2px solid var(--yellow);
+      padding: 0 2rem;
+    }
+    .header__inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      text-decoration: none;
+    }
+    .logo img {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      border: 2px solid var(--yellow);
+      object-fit: cover;
+    }
+    .logo__name {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 1rem;
+      color: var(--white);
+      letter-spacing: -0.01em;
+    }
+    .logo__name span { color: var(--yellow); }
+    .header__badge {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--yellow);
+      border: 1px solid rgba(255,213,89,0.35);
+      border-radius: 999px;
+      padding: 4px 12px;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--black);
+      padding: 72px 2rem 64px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(255,213,89,0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero__inner { max-width: 760px; margin: 0 auto; position: relative; }
+
+    .hero__eyebrow {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--yellow);
+      border: 1px solid rgba(255,213,89,0.4);
+      border-radius: 999px;
+      padding: 5px 14px;
+      margin-bottom: 28px;
+    }
+
+    .hero__title {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2rem, 5vw, 3.25rem);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.12;
+      letter-spacing: -0.025em;
+      margin-bottom: 20px;
+    }
+    .hero__title .accent { color: var(--yellow); }
+
+    .hero__lead {
+      font-size: 1.05rem;
+      font-weight: 300;
+      color: var(--grey-light);
+      max-width: 580px;
+      margin: 0 auto 36px;
+      line-height: 1.65;
+    }
+
+    .hero__meta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-bottom: 44px;
+    }
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--grey-light);
+    }
+    .meta-item .dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--yellow);
+      flex-shrink: 0;
+    }
+    .meta-divider {
+      width: 1px; height: 16px;
+      background: var(--mid);
+    }
+
+    /* ── CTA ANCHOR ── */
+    .hero__cta {
+      display: inline-block;
+      background: var(--yellow);
+      color: var(--black);
+      font-family: 'Syne', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      padding: 16px 36px;
+      border-radius: 8px;
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(255,213,89,0.25);
+    }
+    .hero__cta:hover {
+      background: var(--yellow-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(255,213,89,0.35);
+    }
+
+    /* ── WHAT YOU'LL LEARN ── */
+    .learn {
+      background: var(--white);
+      padding: 64px 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .learn__inner { max-width: 860px; margin: 0 auto; }
+
+    .section-eyebrow {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--charcoal);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 4px 12px;
+      display: inline-block;
+      margin-bottom: 18px;
+    }
+    .section-title {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 700;
+      color: var(--black);
+      letter-spacing: -0.02em;
+      margin-bottom: 36px;
+      line-height: 1.2;
+    }
+
+    .learn__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .learn__item {
+      background: var(--light);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px 22px;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+    .learn__arrow {
+      font-size: 18px;
+      color: var(--yellow-dark);
+      flex-shrink: 0;
+      margin-top: 1px;
+      font-weight: 700;
+    }
+    .learn__text {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--charcoal);
+      line-height: 1.5;
+    }
+    .learn__text strong {
+      display: block;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: 3px;
+    }
+
+    /* ── WHO ── */
+    .who {
+      background: var(--cream);
+      padding: 64px 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .who__inner {
+      max-width: 860px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .who__list { list-style: none; }
+    .who__list li {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      font-size: 14px;
+      color: var(--charcoal);
+      padding: 9px 0;
+      border-bottom: 1px solid var(--border);
+      line-height: 1.5;
+    }
+    .who__list li:last-child { border-bottom: none; }
+    .who__check { color: var(--yellow-dark); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+    .instructor {
+      background: var(--black);
+      border-radius: 12px;
+      padding: 28px;
+      color: var(--white);
+    }
+    .instructor__label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--yellow);
+      margin-bottom: 14px;
+    }
+    .instructor__name {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 10px;
+      letter-spacing: -0.01em;
+    }
+    .instructor__bio {
+      font-size: 13px;
+      color: var(--grey-light);
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+    .cred-list { list-style: none; }
+    .cred-list li {
+      font-size: 12px;
+      color: var(--grey);
+      padding: 4px 0;
+      display: flex;
+      gap: 8px;
+    }
+    .cred-list li::before {
+      content: '★';
+      color: var(--yellow);
+      font-size: 10px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* ── FORM SECTION ── */
+    .form-section {
+      background: var(--black);
+      padding: 72px 2rem;
+    }
+    .form-section__inner {
+      max-width: 520px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .form-section__eyebrow {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--yellow);
+      border: 1px solid rgba(255,213,89,0.4);
+      border-radius: 999px;
+      padding: 4px 14px;
+      margin-bottom: 22px;
+    }
+    .form-section__title {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+      line-height: 1.15;
+    }
+    .form-section__sub {
+      font-size: 14px;
+      color: var(--grey);
+      margin-bottom: 36px;
+      line-height: 1.6;
+    }
+    .form-section__sub span { color: var(--yellow); font-weight: 500; }
+
+    /* Kit form override */
+    .kit-form-wrap {
+      background: var(--dark);
+      border: 1px solid var(--mid);
+      border-radius: 12px;
+      padding: 32px;
+    }
+
+    /* Native Kit form styles will be injected — these are fallback overrides */
+    .kit-form-wrap .formkit-form,
+    .kit-form-wrap form {
+      width: 100% !important;
+    }
+    .kit-form-wrap input[type="text"],
+    .kit-form-wrap input[type="email"] {
+      width: 100% !important;
+      background: var(--mid) !important;
+      border: 1px solid #3a3a3a !important;
+      border-radius: 6px !important;
+      color: var(--white) !important;
+      font-family: 'DM Sans', sans-serif !important;
+      font-size: 14px !important;
+      padding: 13px 16px !important;
+      margin-bottom: 12px !important;
+      outline: none !important;
+      transition: border-color 0.2s !important;
+    }
+    .kit-form-wrap input[type="text"]:focus,
+    .kit-form-wrap input[type="email"]:focus {
+      border-color: var(--yellow) !important;
+    }
+    .kit-form-wrap input[type="text"]::placeholder,
+    .kit-form-wrap input[type="email"]::placeholder {
+      color: var(--grey) !important;
+    }
+    .kit-form-wrap button[type="submit"],
+    .kit-form-wrap .formkit-submit {
+      width: 100% !important;
+      background: var(--yellow) !important;
+      color: var(--black) !important;
+      font-family: 'Syne', sans-serif !important;
+      font-size: 15px !important;
+      font-weight: 700 !important;
+      border: none !important;
+      border-radius: 6px !important;
+      padding: 15px 28px !important;
+      cursor: pointer !important;
+      letter-spacing: 0.02em !important;
+      margin-top: 4px !important;
+      transition: background 0.2s, transform 0.2s !important;
+    }
+    .kit-form-wrap button[type="submit"]:hover,
+    .kit-form-wrap .formkit-submit:hover {
+      background: var(--yellow-dark) !important;
+      transform: translateY(-1px) !important;
+    }
+    .kit-form-wrap .formkit-alert,
+    .kit-form-wrap p {
+      color: var(--grey) !important;
+      font-size: 12px !important;
+    }
+
+    .form-note {
+      margin-top: 16px;
+      font-size: 12px;
+      color: var(--grey);
+      line-height: 1.5;
+    }
+    .form-note a { color: var(--yellow); text-decoration: none; }
+
+    /* ── TESTIMONIAL ── */
+    .testimonial {
+      background: var(--yellow);
+      padding: 52px 2rem;
+      text-align: center;
+    }
+    .testimonial__inner { max-width: 680px; margin: 0 auto; }
+    .testimonial__quote {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+      font-weight: 700;
+      color: var(--black);
+      line-height: 1.45;
+      margin-bottom: 18px;
+      letter-spacing: -0.01em;
+    }
+    .testimonial__author {
+      font-size: 13px;
+      font-weight: 500;
+      color: rgba(13,13,13,0.65);
+    }
+    .testimonial__author strong { color: var(--black); }
+
+    /* ── FOOTER ── */
+    .footer {
+      background: var(--black);
+      padding: 36px 2rem 28px;
+      text-align: center;
+      border-top: 1px solid var(--mid);
+    }
+    .footer__logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.65rem;
+      text-decoration: none;
+      margin-bottom: 16px;
+    }
+    .footer__logo img {
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      border: 1px solid var(--yellow);
+    }
+    .footer__logo span {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 0.9rem;
+      color: var(--white);
+    }
+    .footer__logo span em { color: var(--yellow); font-style: normal; }
+    .footer__legal {
+      font-size: 12px;
+      color: var(--grey);
+      line-height: 1.7;
+    }
+    .footer__legal a { color: var(--grey); text-decoration: underline; }
+
+    /* ── RESPONSIVE ── */
+    /* ── TIMEZONE TOGGLE ── */
+    .tz-toggle-wrap {
+      margin-top: 20px;
+      text-align: center;
+    }
+    .tz-toggle {
+      background: none;
+      border: 1px solid rgba(255,213,89,0.3);
+      border-radius: 999px;
+      color: var(--grey-light);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      padding: 6px 16px;
+      cursor: pointer;
+      transition: border-color 0.2s, color 0.2s;
+      letter-spacing: 0.02em;
+    }
+    .tz-toggle:hover {
+      border-color: var(--yellow);
+      color: var(--yellow);
+    }
+    .tz-table-wrap {
+      margin-top: 16px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--mid);
+      border-radius: 10px;
+      overflow: hidden;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .tz-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .tz-table tr {
+      border-bottom: 1px solid var(--mid);
+    }
+    .tz-table tr:last-child { border-bottom: none; }
+    .tz-table tr.is-local {
+      background: rgba(255,213,89,0.07);
+    }
+    .tz-table td {
+      padding: 10px 16px;
+      font-size: 13px;
+      color: var(--grey-light);
+      line-height: 1.4;
+    }
+    .tz-table td:first-child {
+      color: var(--grey);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      width: 38%;
+    }
+    .tz-table tr.is-local td {
+      color: var(--yellow);
+    }
+    .tz-table tr.is-local td:first-child {
+      color: rgba(255,213,89,0.7);
+    }
+    .local-time-note {
+      display: block;
+      font-size: 11px;
+      color: var(--grey);
+      margin-top: 2px;
+    }
+
+    @media (max-width: 768px) {
+      .learn__grid { grid-template-columns: 1fr; }
+      .who__inner { grid-template-columns: 1fr; gap: 32px; }
+      .hero { padding: 52px 1.25rem 48px; }
+      .learn, .who, .form-section, .footer { padding-left: 1.25rem; padding-right: 1.25rem; }
+      .hero__meta { gap: 14px; }
+      .meta-divider { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header__inner">
+      <a href="https://continuousimprovement.education" class="logo">
+        <img src="http://practitioner.kaizenacademy.education/logo_round.png" alt="Kaizen Academy" />
+        <span class="logo__name">Kaizen <span>Academy</span></span>
+      </a>
+      <span class="header__badge">Free Live Workshop</span>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero__inner">
+      <div class="hero__eyebrow">Free Live Workshop · <span id="eyebrow-date">21 June 2026</span></div>
+      <h1 class="hero__title">
+        The Skill That Separates<br>
+        Good Managers from<br>
+        <span class="accent">Great Ones</span>
+      </h1>
+      <p class="hero__lead">
+        A free 60-minute live session on structured problem solving — the framework used by Toyota and the world's best-run operations. Practical, fast-paced, and immediately applicable.
+      </p>
+      <div class="hero__meta">
+        <div class="meta-item"><span class="dot"></span> <span id="local-datetime">Loading your local time...</span></div>
+        <div class="meta-divider"></div>
+        <div class="meta-item"><span class="dot"></span> 60 Minutes · Free</div>
+        <div class="meta-divider"></div>
+        <div class="meta-item"><span class="dot"></span> Microsoft Teams</div>
+      </div>
+
+      <div class="tz-toggle-wrap">
+        <button class="tz-toggle" id="tzToggle">↓ See times in other timezones</button>
+        <div class="tz-table-wrap" id="tzTable" hidden>
+          <table class="tz-table"><tbody id="tzTableBody"></tbody></table>
+        </div>
+      </div>
+      <a href="#register" class="hero__cta">Reserve Your Spot — It's Free →</a>
+    </div>
+  </section>
+
+  <!-- WHAT YOU'LL LEARN -->
+  <section class="learn">
+    <div class="learn__inner">
+      <div class="section-eyebrow">What you'll learn</div>
+      <h2 class="section-title">60 minutes that will change how<br>you approach every problem</h2>
+      <div class="learn__grid">
+        <div class="learn__item">
+          <span class="learn__arrow">→</span>
+          <div class="learn__text">
+            <strong>Why most teams fix the wrong problem</strong>
+            The difference between symptoms and root causes — and why skipping this step wastes months of effort.
+          </div>
+        </div>
+        <div class="learn__item">
+          <span class="learn__arrow">→</span>
+          <div class="learn__text">
+            <strong>The 4 types of problems every manager faces</strong>
+            A framework from Toyota that instantly clarifies which tool to use and how to approach any situation.
+          </div>
+        </div>
+        <div class="learn__item">
+          <span class="learn__arrow">→</span>
+          <div class="learn__text">
+            <strong>A3 thinking — live walkthrough</strong>
+            The one-page problem-solving framework used by Toyota, GE, and leading lean organisations worldwide.
+          </div>
+        </div>
+        <div class="learn__item">
+          <span class="learn__arrow">→</span>
+          <div class="learn__text">
+            <strong>A live 5 Whys exercise</strong>
+            Work through a real problem together — in real time. You'll apply this the next morning.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO + INSTRUCTOR -->
+  <section class="who">
+    <div class="who__inner">
+      <div>
+        <div class="section-eyebrow">Who this is for</div>
+        <h2 class="section-title" style="margin-bottom: 24px;">Built for practitioners,<br>not theorists</h2>
+        <ul class="who__list">
+          <li><span class="who__check">✓</span> Operations and production managers dealing with recurring problems</li>
+          <li><span class="who__check">✓</span> Quality and continuous improvement professionals</li>
+          <li><span class="who__check">✓</span> Engineers and team leaders who want a structured approach</li>
+          <li><span class="who__check">✓</span> Anyone who's tried to improve a process and hit the same wall twice</li>
+          <li><span class="who__check">✓</span> No lean background required — just bring a real problem</li>
+        </ul>
+      </div>
+      <div class="instructor">
+        <div class="instructor__label">Your instructor</div>
+        <div class="instructor__name">Ahmed Radwan</div>
+        <p class="instructor__bio">
+          Founder of Kaizen Academy. 15+ years in lean and operational excellence across manufacturing, healthcare, and services.
+        </p>
+        <ul class="cred-list">
+          <li>Lean Six Sigma Master Black Belt</li>
+          <li>Lean Bronze — Shingo Institute</li>
+          <li>Project Management Professional (PMI)</li>
+          <li>5,000+ professionals trained globally</li>
+          <li>Co-founder, KME community — 300K+ subscribers</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIAL -->
+  <section class="testimonial">
+    <div class="testimonial__inner">
+      <p class="testimonial__quote">
+        "Ahmed clearly has a deep grasp of lean and The Toyota Way. He did an amazing job of synthesising key points and connecting them to engaging, practical content."
+      </p>
+      <p class="testimonial__author">
+        <strong>Jeffrey Liker</strong> · Author of The Toyota Way | Liker Lean Advisor
+      </p>
+    </div>
+  </section>
+
+  <!-- REGISTRATION FORM -->
+  <section class="form-section" id="register">
+    <div class="form-section__inner">
+      <div class="form-section__eyebrow">Reserve your spot</div>
+      <h2 class="form-section__title">Join the free workshop<br>on <span id="form-date">21 June</span></h2>
+      <p class="form-section__sub">
+        Enter your details below. You'll receive a confirmation email with your <span>Microsoft Teams join link</span> and a calendar invite for <span id="form-datetime">your local time</span>.
+      </p>
+
+      <div class="kit-form-wrap">
+        <!-- KIT FORM — Webinar June 21 | UID: a902c7b31d | Form: 9522610 -->
+        <script src="https://f.convertkit.com/ckjs/ck.5.js"></script>
+        <form action="https://app.kit.com/forms/9522610/subscriptions"
+              class="seva-form formkit-form"
+              method="post"
+              data-sv-form="9522610"
+              data-uid="a902c7b31d"
+              data-format="inline"
+              data-version="5"
+              style="background:transparent;box-shadow:none;border-radius:0;min-width:0;">
+          <ul class="formkit-alert formkit-alert-error" data-element="errors" data-group="alert"></ul>
+          <div data-element="fields" data-stacked="true" class="seva-fields formkit-fields">
+            <div class="formkit-field" style="margin-bottom:12px;">
+              <input class="formkit-input"
+                     name="email_address"
+                     aria-label="Email Address"
+                     placeholder="Your email address"
+                     required
+                     type="email" />
+            </div>
+            <div class="formkit-field" style="margin-bottom:12px;">
+              <input class="formkit-input"
+                     name="fields[first_name]"
+                     aria-label="First Name"
+                     placeholder="Your first name"
+                     type="text" />
+            </div>
+            <button data-element="submit" class="formkit-submit">
+              <div class="formkit-spinner"><div></div><div></div><div></div></div>
+              <span>Reserve My Spot — It's Free →</span>
+            </button>
+          </div>
+        </form>
+
+        <style>
+          .formkit-form[data-uid="a902c7b31d"] { background: transparent !important; box-shadow: none !important; max-width: 100% !important; overflow: visible !important; }
+          .formkit-form[data-uid="a902c7b31d"] [data-style="full"] { display: block !important; }
+          .formkit-form[data-uid="a902c7b31d"] .formkit-background { display: none !important; }
+          .formkit-form[data-uid="a902c7b31d"] .formkit-header { display: none !important; }
+          .formkit-form[data-uid="a902c7b31d"] .formkit-powered-by-convertkit-container { display: none !important; }
+          .formkit-form[data-uid="a902c7b31d"] .formkit-disclaimer { display: none !important; }
+          .formkit-form[data-uid="a902c7b31d"] .formkit-column { padding: 0 !important; background: transparent !important; }
+          .formkit-form[data-uid="a902c7b31d"] .formkit-input {
+            width: 100% !important;
+            background: #2e2e2e !important;
+            border: 1px solid #3a3a3a !important;
+            border-radius: 6px !important;
+            color: #ffffff !important;
+            font-family: 'DM Sans', sans-serif !important;
+            font-size: 14px !important;
+            padding: 13px 16px !important;
+            outline: none !important;
+            transition: border-color 0.2s !important;
+            box-sizing: border-box !important;
+          }
+          .formkit-form[data-uid="a902c7b31d"] .formkit-input:focus { border-color: #ffd559 !important; }
+          .formkit-form[data-uid="a902c7b31d"] .formkit-input::placeholder { color: #8a8a8a !important; opacity: 1 !important; }
+          .formkit-form[data-uid="a902c7b31d"] .formkit-submit {
+            width: 100% !important;
+            background: #ffd559 !important;
+            color: #0d0d0d !important;
+            font-family: 'Syne', sans-serif !important;
+            font-size: 15px !important;
+            font-weight: 700 !important;
+            border: none !important;
+            border-radius: 6px !important;
+            padding: 15px 28px !important;
+            cursor: pointer !important;
+            letter-spacing: 0.02em !important;
+            margin-top: 4px !important;
+            margin-bottom: 0 !important;
+            transition: background 0.2s, transform 0.2s !important;
+            display: block !important;
+          }
+          .formkit-form[data-uid="a902c7b31d"] .formkit-submit:hover { background: #e6be3e !important; transform: translateY(-1px) !important; }
+          .formkit-form[data-uid="a902c7b31d"] .formkit-submit > span { padding: 0 !important; background: transparent !important; }
+          .formkit-form[data-uid="a902c7b31d"] .formkit-alert-error {
+            background: rgba(239,68,68,0.1) !important;
+            border-color: rgba(239,68,68,0.3) !important;
+            color: #fca5a5 !important;
+            border-radius: 6px !important;
+            margin-bottom: 12px !important;
+          }
+        </style>
+      </div>
+
+      <p class="form-note">
+        ★ There will be an <strong style="color:var(--yellow)">exclusive offer for attendees only</strong> — revealed on the day.<br>
+        No spam. Unsubscribe anytime. Hosted by <a href="https://continuousimprovement.education">Kaizen Academy Pty Ltd</a>.
+      </p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <a href="https://continuousimprovement.education" class="footer__logo">
+      <img src="http://practitioner.kaizenacademy.education/logo_round.png" alt="Kaizen Academy" />
+      <span>Kaizen <em>Academy</em></span>
+    </a>
+    <p class="footer__legal">
+      Kaizen Academy Pty Ltd · Melbourne, Australia · ABN 44 682 421 745<br>
+      <a href="mailto:learn@continuousimprovement.education">learn@continuousimprovement.education</a><br>
+      © <span id="yr"></span> Kaizen Academy Pty Ltd. All rights reserved.
+    </p>
+  </footer>
+
+  <script>
+    document.getElementById('yr').textContent = new Date().getFullYear();
+
+    // ── TIMEZONE DETECTION ──
+    // Event: Sunday 21 June 2026 12:00 AM AEST = UTC+10
+    // UTC equivalent: Saturday 20 June 2026 14:00 UTC
+    const eventUTC = new Date('2026-06-20T14:00:00Z');
+
+    const timezones = [
+      { label: 'Melbourne',     tz: 'Australia/Melbourne' },
+      { label: 'Dubai / UAE',   tz: 'Asia/Dubai' },
+      { label: 'Mumbai / India',tz: 'Asia/Kolkata' },
+      { label: 'Jakarta',       tz: 'Asia/Jakarta' },
+      { label: 'Cairo',         tz: 'Africa/Cairo' },
+      { label: 'London / UK',   tz: 'Europe/London' },
+      { label: 'New York',      tz: 'America/New_York' },
+    ];
+
+    function formatInTZ(date, tz) {
+      return date.toLocaleString('en-GB', {
+        timeZone: tz,
+        weekday: 'short',
+        day: 'numeric',
+        month: 'short',
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: true
+      });
+    }
+
+    function formatDateInTZ(date, tz) {
+      return date.toLocaleDateString('en-GB', {
+        timeZone: tz,
+        weekday: 'long',
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric'
+      });
+    }
+
+    // Detect user local timezone
+    const userTZ = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    const userDatetime = formatInTZ(eventUTC, userTZ);
+
+    // Determine city name from TZ if possible
+    const tzCity = userTZ.split('/').pop().replace(/_/g, ' ');
+
+    document.getElementById('local-datetime').innerHTML =
+      userDatetime + ' <span style="color:var(--grey);font-size:11px;">your local time</span>';
+
+    // Form section dynamic date
+    const formDate = eventUTC.toLocaleDateString('en-GB', {
+      timeZone: userTZ,
+      day: 'numeric',
+      month: 'long'
+    });
+    const formDatetime = formatInTZ(eventUTC, userTZ);
+    document.getElementById('form-date').textContent = formDate;
+    document.getElementById('form-datetime').textContent = formDatetime + ' your local time';
+
+    // Eyebrow date — short format e.g. "21 June 2026" in user's local date
+    const eyebrowDate = eventUTC.toLocaleDateString('en-GB', {
+      timeZone: userTZ,
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric'
+    });
+    document.getElementById('eyebrow-date').textContent = eyebrowDate;
+
+    // Build timezone table
+    const tbody = document.getElementById('tzTableBody');
+    timezones.forEach(function(item) {
+      const isUser = userTZ === item.tz ||
+        (userTZ.includes(item.tz.split('/')[1]));
+      const tr = document.createElement('tr');
+      if (isUser) tr.classList.add('is-local');
+      const formatted = formatInTZ(eventUTC, item.tz);
+      tr.innerHTML =
+        '<td>' + item.label + (isUser ? ' ★' : '') + '</td>' +
+        '<td>' + formatted + (isUser ? '<span class="local-time-note">← your timezone</span>' : '') + '</td>';
+      tbody.appendChild(tr);
+    });
+
+    // Also append user's actual TZ if not in the list
+    const knownTZs = timezones.map(function(t){ return t.tz; });
+    if (!knownTZs.includes(userTZ)) {
+      const tr = document.createElement('tr');
+      tr.classList.add('is-local');
+      tr.innerHTML =
+        '<td>' + tzCity + ' ★</td>' +
+        '<td>' + userDatetime + '<span class="local-time-note">← your timezone</span></td>';
+      tbody.insertBefore(tr, tbody.firstChild);
+    }
+
+    // Toggle
+    document.getElementById('tzToggle').addEventListener('click', function() {
+      const table = document.getElementById('tzTable');
+      const isHidden = table.hidden;
+      table.hidden = !isHidden;
+      this.textContent = isHidden
+        ? '↑ Hide other timezones'
+        : '↓ See times in other timezones';
+    });
+
+    // Smooth scroll for hero CTA
+    document.querySelector('.hero__cta').addEventListener('click', function(e) {
+      e.preventDefault();
+      document.querySelector('#register').scrollIntoView({ behavior: 'smooth' });
+    });
+  </script>
+
+</body>
+</html>
