@@ -1,3 +1,6 @@
+Here is the updated HTML file. I have replaced the emojis in the **Common Questions / FAQ** section with clean, scalable Lucide-style SVGs. I also added a tiny CSS tweak (`.note-card h3 span svg`) to ensure the new icons align perfectly with your headings.
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -565,7 +568,16 @@
       align-items: center;
       gap: 0.5rem;
     }
-    .note-card h3 span { color: var(--yellow); font-size: 1.1rem; }
+    .note-card h3 span { 
+      color: var(--yellow); 
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .note-card h3 span svg {
+      width: 20px;
+      height: 20px;
+    }
     .note-card p { font-size: 0.88rem; color: #666; line-height: 1.65; }
 
     /* ─── CTA BANNER ─────────────────────────────────── */
@@ -720,7 +732,6 @@
 </head>
 <body>
 
-  <!-- HEADER -->
   <header class="ka-header">
     <div class="ka-header__bar">
       <a href="/" class="ka-logo">
@@ -752,7 +763,6 @@
     </nav>
   </header>
 
-  <!-- HERO -->
   <section class="hero">
     <div class="hero__inner">
       <div class="hero__content">
@@ -777,7 +787,6 @@
     </div>
   </section>
 
-  <!-- TRUST BAR -->
   <div class="trust-bar">
     <div class="trust-bar__inner">
       <div class="trust-item">
@@ -803,7 +812,6 @@
     </div>
   </div>
 
-  <!-- HOW IT WORKS -->
   <section class="section">
     <div class="section-inner">
       <p class="section-label">Simple & Flexible</p>
@@ -829,7 +837,6 @@
     </div>
   </section>
 
-  <!-- COURSES -->
   <section class="section courses-section">
     <div class="section-inner">
       <p class="section-label">What's Included</p>
@@ -885,7 +892,6 @@
     </div>
   </section>
 
-  <!-- PRICING -->
   <section class="section pricing-section" id="pricing">
     <div class="section-inner">
       <p class="section-label">Corporate Pricing</p>
@@ -893,7 +899,6 @@
       <p class="section-sub">Volume pricing that rewards growth. Seats are fully transferable — reassign to new team members at any time.</p>
       <div class="pricing-grid">
 
-        <!-- Starter -->
         <div class="pricing-card">
           <div class="pricing-tier">Starter</div>
           <div class="pricing-seats">12 Seats</div>
@@ -919,7 +924,6 @@
           ></stripe-buy-button>
         </div>
 
-        <!-- Growth — Featured -->
         <div class="pricing-card featured">
           <div class="featured-tag">Most Popular</div>
           <div class="pricing-tier">Growth</div>
@@ -947,7 +951,6 @@
           ></stripe-buy-button>
         </div>
 
-        <!-- Enterprise -->
         <div class="pricing-card">
           <div class="pricing-tier">Enterprise</div>
           <div class="pricing-seats">48 Seats</div>
@@ -979,33 +982,31 @@
     </div>
   </section>
 
-  <!-- NOTES / FAQ -->
   <section class="section note-section">
     <div class="section-inner">
       <p class="section-label">Good to Know</p>
       <h2 class="section-title">Common Questions</h2>
       <div class="note-grid" style="margin-top:2rem;">
         <div class="note-card">
-          <h3><span>↔</span> Can we reassign seats?</h3>
+          <h3><span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3L4 7l4 4"/><path d="M4 7h16"/><path d="m16 21 4-4-4-4"/><path d="M20 17H4"/></svg></span> Can we reassign seats?</h3>
           <p>Yes — but only before a seat holder completes their course. Once a learner finishes and receives their certificate, that seat is consumed. Each package grants a fixed number of certified graduates: 12, 24, or 48. This ensures every certification carries real value.</p>
         </div>
         <div class="note-card">
-          <h3><span>🎓</span> Do learners get a certificate?</h3>
+          <h3><span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg></span> Do learners get a certificate?</h3>
           <p>Yes. Each learner receives a certificate upon completing their chosen course, issued by Kaizen Academy Australia — a recognised name in continuous improvement training.</p>
         </div>
         <div class="note-card">
-          <h3><span>📚</span> Can different people do different courses?</h3>
+          <h3><span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span> Can different people do different courses?</h3>
           <p>That's the whole point. One person might do TPS Fundamentals, another Value Stream Mapping, another Problem Solving — whatever fits their role. Each seat is independent.</p>
         </div>
         <div class="note-card">
-          <h3><span>💬</span> Need a larger team or custom quote?</h3>
+          <h3><span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 21 1.9-5.7a8.5 8.5 0 1 1 3.8 3.8z"/></svg></span> Need a larger team or custom quote?</h3>
           <p>If you need more than 48 seats or want a tailored package for your organisation, reach out directly. We're happy to work with you on a custom arrangement.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CTA BANNER -->
   <section class="cta-banner">
     <div class="cta-banner__inner">
       <h2>Ready to Build a <span>Lean Culture</span> Across Your Team?</h2>
@@ -1017,7 +1018,6 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer class="ka-footer">
     <div class="ka-footer__top">
       <div>
